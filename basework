@@ -1,0 +1,304 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local WindowsXP = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local DragFrame = Instance.new("Frame")
+local XPBackground = Instance.new("ImageLabel")
+local Title = Instance.new("TextLabel")
+local Minimize = Instance.new("ImageButton")
+local Close = Instance.new("ImageButton")
+local Maximize = Instance.new("ImageButton")
+local Startupexe = Instance.new("Frame")
+local windowslmao = Instance.new("ImageButton")
+local bootup = Instance.new("TextLabel")
+
+--Properties:
+
+WindowsXP.Name = "WindowsXP"
+WindowsXP.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+WindowsXP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+WindowsXP.ResetOnSpawn = false
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = WindowsXP
+MainFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MainFrame.BackgroundTransparency = 1.000
+MainFrame.Position = UDim2.new(0.0101892287, 0, 0.180887297, 0)
+MainFrame.Size = UDim2.new(0, 278, 0, 465)
+
+DragFrame.Name = "DragFrame"
+DragFrame.Parent = MainFrame
+DragFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DragFrame.BackgroundTransparency = 1.000
+DragFrame.Position = UDim2.new(0.101372041, 0, 0, 0)
+DragFrame.Size = UDim2.new(0, 169, 0, 31)
+
+XPBackground.Name = "XPBackground"
+XPBackground.Parent = MainFrame
+XPBackground.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+XPBackground.BackgroundTransparency = 1.000
+XPBackground.Position = UDim2.new(0.097774975, 0, 0, 0)
+XPBackground.Size = UDim2.new(0.901320159, 0, 1.00000024, 0)
+XPBackground.Image = "http://www.roblox.com/asset/?id=5838849817"
+XPBackground.ScaleType = Enum.ScaleType.Slice
+XPBackground.SliceCenter = Rect.new(7, 33, 7, 33)
+
+Title.Name = "Title"
+Title.Parent = XPBackground
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.Position = UDim2.new(0.0399094857, 0, 0, 0)
+Title.Size = UDim2.new(0, 160, 0, 31)
+Title.ZIndex = 2
+Title.Font = Enum.Font.Arcade
+Title.Text = "95sploit.exe"
+Title.TextColor3 = Color3.fromRGB(209, 209, 209)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+Minimize.Name = "Minimize"
+Minimize.Parent = XPBackground
+Minimize.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Minimize.BackgroundTransparency = 1.000
+Minimize.Position = UDim2.new(0.70758462, 0, 0, 0)
+Minimize.Size = UDim2.new(0, 23, 0, 31)
+Minimize.ZIndex = 15
+Minimize.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+Minimize.ImageTransparency = 1.000
+
+Close.Name = "Close"
+Close.Parent = XPBackground
+Close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Close.BackgroundTransparency = 1.000
+Close.Position = UDim2.new(0.887177289, 0, 0, 0)
+Close.Size = UDim2.new(0, 27, 0, 31)
+Close.ZIndex = 15
+Close.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+Close.ImageTransparency = 1.000
+
+Maximize.Name = "Maximize"
+Maximize.Parent = XPBackground
+Maximize.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Maximize.BackgroundTransparency = 1.000
+Maximize.Position = UDim2.new(0.803367436, 0, 0, 0)
+Maximize.Size = UDim2.new(0, 20, 0, 31)
+Maximize.ZIndex = 15
+Maximize.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+Maximize.ImageTransparency = 1.000
+
+Startupexe.Name = "Startup.exe"
+Startupexe.Parent = WindowsXP
+Startupexe.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Startupexe.BackgroundTransparency = 1.000
+Startupexe.Size = UDim2.new(1, 0, 1, 0)
+Startupexe.Visible = false
+Startupexe.ZIndex = 456956490
+
+windowslmao.Name = "windowslmao"
+windowslmao.Parent = Startupexe
+windowslmao.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+windowslmao.BackgroundTransparency = 1.000
+windowslmao.Size = UDim2.new(1, 0, 1, 0)
+windowslmao.ZIndex = 964890685
+windowslmao.Image = "http://www.roblox.com/asset/?id=23410448"
+
+bootup.Name = "bootup"
+bootup.Parent = windowslmao
+bootup.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+bootup.BackgroundTransparency = 1.000
+bootup.Position = UDim2.new(0.401471794, 0, 0.733788371, 0)
+bootup.Size = UDim2.new(0, 237, 0, 28)
+bootup.Font = Enum.Font.Arcade
+bootup.Text = "booting up or smthing"
+bootup.TextColor3 = Color3.fromRGB(255, 255, 255)
+bootup.TextScaled = true
+bootup.TextSize = 14.000
+bootup.TextWrapped = true
+
+-- Scripts:
+
+local function IHDLG_fake_script() -- MainFrame.DragScript 
+	local script = Instance.new('LocalScript', MainFrame)
+
+	script.Parent.Name = "DragScript"
+	
+	local UserInputService = game:GetService("UserInputService")
+	
+	local gui = script.Parent
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	
+	local function update(input)
+		local delta = input.Position - dragStart
+		gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	end
+	
+	gui.DragFrame.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+end
+coroutine.wrap(IHDLG_fake_script)()
+local function RRCM_fake_script() -- MainFrame.SoundScript 
+	local script = Instance.new('LocalScript', MainFrame)
+
+	script.Parent.Name = "SoundScript"
+	
+	local ClickSound = Instance.new("Sound")
+	ClickSound.Name = "ClickSound"
+	ClickSound.Parent = script
+	ClickSound.SoundId = "rbxassetid://907514098"
+	
+	local ShutdownSound = Instance.new("Sound")
+	ShutdownSound.Name = "ShutdownSound"
+	ShutdownSound.Parent = script
+	ShutdownSound.SoundId = "rbxassetid://784747919"
+	
+	local ErrorSound = Instance.new("Sound")
+	ErrorSound.Name = "ErrorSound"
+	ErrorSound.Parent = script
+	ErrorSound.SoundId = "rbxassetid://3041205264"
+end
+coroutine.wrap(RRCM_fake_script)()
+local function IFYWUHT_fake_script() -- Minimize.MinimizeScript 
+	local script = Instance.new('LocalScript', Minimize)
+
+	function leftClick()
+		script.Parent.Parent.Parent.SoundScript:WaitForChild("ClickSound"):Play()
+		script.Parent.Parent.Parent.Position = UDim2.new(0.02,-0,0.966,-0)
+	end 
+	
+	script.Parent.MouseButton1Click:Connect(leftClick)
+	
+end
+coroutine.wrap(IFYWUHT_fake_script)()
+local function PUGC_fake_script() -- Close.CloseScript 
+	local script = Instance.new('LocalScript', Close)
+
+	function leftClick()
+		script.Parent.Parent.Parent.SoundScript:WaitForChild("ShutdownSound"):Play()
+		script.Parent.Parent.Parent.Parent:Destroy()
+	end
+	
+	script.Parent.MouseButton1Click:Connect(leftClick)
+	
+end
+coroutine.wrap(PUGC_fake_script)()
+local function TVMWEU_fake_script() -- Maximize.MaximizeScript 
+	local script = Instance.new('LocalScript', Maximize)
+
+	function leftClick()
+		script.Parent.Parent.Parent.SoundScript:WaitForChild("ClickSound"):Play()
+		script.Parent.Parent.Parent.Position = UDim2.new(0.01, 0,0.181, 0)
+	end
+	
+	script.Parent.MouseButton1Click:Connect(leftClick)
+	
+end
+coroutine.wrap(TVMWEU_fake_script)()
+local function JUGAO_fake_script() -- windowslmao.startup 
+	local script = Instance.new('LocalScript', windowslmao)
+
+	local suSound = Instance.new("Sound", script.Parent)
+	suSound.Name = "startupSound"
+	suSound.SoundId = "rbxassetid://561413719"
+	local p = script.Parent
+	local startupSoundWS = script.Parent:WaitForChild("startupSound")
+	
+	
+	script.Parent.Parent.Visible = true
+	if script.Parent.Visible == true then
+		startupSoundWS:Play()
+		p.ImageTransparency = 0.05
+				wait(0.15)
+		p.ImageTransparency = 0.10
+				wait(0.15)
+		p.ImageTransparency = 0.15
+				wait(0.15)
+		p.ImageTransparency = 0.20
+				wait(0.15)
+		p.ImageTransparency = 0.25
+				wait(0.15)
+		p.ImageTransparency = 0.30
+				wait(0.15)
+		p.ImageTransparency = 0.35
+				wait(0.15)
+		p.ImageTransparency = 0.40
+				wait(0.15)
+		p.ImageTransparency = 0.45
+				wait(0.15)
+		p.ImageTransparency = 0.50
+				wait(0.15)
+		p.ImageTransparency = 0.55
+				wait(0.15)
+		p.ImageTransparency = 0.60
+				wait(0.15)
+		p.ImageTransparency = 0.65
+				wait(0.15)
+		p.ImageTransparency = 0.70
+				wait(0.15)
+		p.ImageTransparency = 0.75
+				wait(0.15)
+		p.ImageTransparency = 0.80
+				wait(0.15)
+		p.ImageTransparency = 0.85
+				wait(0.15)
+		p.ImageTransparency = 0.90
+				wait(0.15)
+		p.ImageTransparency = 0.95
+				wait(0.15)
+		p.ImageTransparency = 1
+				wait(.15)
+			script.Parent.Parent:Destroy()
+		end
+			
+		
+		
+	
+	
+	
+	
+	
+end
+coroutine.wrap(JUGAO_fake_script)()
+local function UDKIAR_fake_script() -- bootup.text 
+	local script = Instance.new('LocalScript', bootup)
+
+	while true do
+		wait(.3)
+		script.Parent.Text = "booting up or smthing."
+		wait(.3)
+		script.Parent.Text = "booting up or smthing.."
+		wait(.3)
+		script.Parent.Text = "booting up or smthing..."
+	end
+end
+coroutine.wrap(UDKIAR_fake_script)()
