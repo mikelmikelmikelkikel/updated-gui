@@ -124,7 +124,7 @@ bootup.TextWrapped = true
 local function IHDLG_fake_script() -- MainFrame.DragScript 
 	local script = Instance.new('LocalScript', MainFrame)
 
-	script.Parent.Name = "DragScript"
+	script.Name = "DragScript"
 	
 	local UserInputService = game:GetService("UserInputService")
 	
@@ -170,7 +170,7 @@ coroutine.wrap(IHDLG_fake_script)()
 local function RRCM_fake_script() -- MainFrame.SoundScript 
 	local script = Instance.new('LocalScript', MainFrame)
 
-	script.Parent.Name = "SoundScript"
+	script.Name = "SoundScript"
 	
 	local ClickSound = Instance.new("Sound")
 	ClickSound.Name = "ClickSound"
