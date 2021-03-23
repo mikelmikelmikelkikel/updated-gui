@@ -2100,23 +2100,27 @@ local function DBTEQO_fake_script() -- Set_3.SetValue
 	local script = Instance.new('LocalScript', Set_3)
 
 	local Anim = Instance.new("Animation")
-	Anim.AnimationId = "rbxassetid://"..script.Parent.Parent.ID_Box.Text..""
-	local track = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
-	local animationplaying = false
-	
-	script.Parent.MouseButton1Click:connect(function()
-		animationplaying = not animationplaying
-		if animationplaying then
-			script.Parent.Parent.Parent.Parent.Parent.SoundScript:WaitForChild("ClickSound"):Play()
-			script.Parent.Image = "rbxassetid://6559255312"
-			track:Play(.1, 1, 1)
-		else
-			track:Stop()
-			script.Parent.Parent.Parent.Parent.Parent.SoundScript:WaitForChild("ClickSound"):Play()
-			script.Parent.Image = "rbxassetid://6559255431"
+Anim.AnimationId = "rbxassetid://35154961"
+local track = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+local HeadThrowACTIVE = false
+local HeadThrow = script.Parent
+
+HeadThrow.MouseButton1Click:connect(function()
+	HeadThrowACTIVE = not HeadThrowACTIVE
+	if HeadThrowACTIVE then
+		script.Parent.Image = "rbxassetid://6559255312"
+		while wait() do
+			if track.IsPlaying == false then
+				if HeadThrowACTIVE then
+					track:Play(.1, 1, 1)
+				end
+			end
 		end
-	end)
-	
+	else
+		track:Stop()
+		script.Parent.Image = "rbxassetid://6559255431"
+	end
+end)
 end
 coroutine.wrap(DBTEQO_fake_script)()
 local function OAVLHA_fake_script() -- AssassinButton.ScriptLoader 
