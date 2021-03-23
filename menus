@@ -2106,6 +2106,7 @@ local HeadThrowACTIVE = false
 local HeadThrow = script.Parent
 
 HeadThrow.MouseButton1Click:connect(function()
+Anim.AnimationId = "rbxassetid://"..script.Parent.Parent.ID_Box..""
 	HeadThrowACTIVE = not HeadThrowACTIVE
 	if HeadThrowACTIVE then
 		script.Parent.Image = "rbxassetid://6559255312"
