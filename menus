@@ -2100,7 +2100,7 @@ local function DBTEQO_fake_script() -- Set_3.SetValue
 	local script = Instance.new('LocalScript', Set_3)
 
 	local Anim = Instance.new("Animation")
-Anim.AnimationId = "rbxassetid://35154961"
+Anim.AnimationId = "rbxassetid://"..script.Parent.Parent.ID_Box..""
 local track = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
 local HeadThrowACTIVE = false
 local HeadThrow = script.Parent
