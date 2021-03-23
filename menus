@@ -2252,7 +2252,7 @@ local function WWNMOBY_fake_script() -- AnimateBG.ScriptLoader
 	
 	function leftClick()
 		if Spawned == false then
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/mikelmikelmikelkikel/emotegui/main/emotegui",true))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/mikelmikelmikelkikel/emotegui2/main/emotegui2",true))()
 		script.Parent.Parent.Parent.Parent.Parent.Parent.SoundScript:WaitForChild("ClickSound"):Play()
 		
 		end
