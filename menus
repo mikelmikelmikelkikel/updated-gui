@@ -154,7 +154,7 @@ local Audio = Instance.new("ImageButton")
 --Properties:
 
 Menus.Name = "Menus"
-Menus.Parent = game.StarterGui.WindowsXP.MainFrame
+Menus.Parent = game.Players.LocalPlayer.PlayerGui.WindowsXP.MainFrame
 Menus.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Menus.BackgroundTransparency = 1.000
 Menus.Position = UDim2.new(0.0971223041, 0, 0.0666666701, 0)
@@ -1542,7 +1542,7 @@ audioslist.TextSize = 14.000
 audioslist.TextWrapped = true
 
 Sidebar.Name = "Sidebar"
-Sidebar.Parent = game.StarterGui.WindowsXP.MainFrame
+Sidebar.Parent = game.Players.LocalPlayer.PlayerGui.WindowsXP.MainFrame
 Sidebar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Sidebar.BackgroundTransparency = 1.000
 Sidebar.Position = UDim2.new(0, 0, 0.0666666701, 0)
